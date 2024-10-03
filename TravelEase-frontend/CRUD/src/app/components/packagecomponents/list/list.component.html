@@ -1,0 +1,54 @@
+
+<div class="container mt-5">
+    <div class="row">
+        <div class="col-lg-3 col-md-4 col-sm-6 mb-4" *ngFor="let package of packages">
+            <div class="card h-100 custom-card">
+                <img src="{{package.image}}" class="card-img-top" alt="Package Image">
+                <div class="card-body">
+                    <p class="text-center mb-3 category-label">Category: {{package.category.name}}</p>
+                    <h5 class="card-title package-title">{{package.name}}</h5>
+                    <p class="card-text package-description">{{package.short_description}}</p>
+                    <p class="price">{{package.price | currency:'INR'}}</p>
+                    <a (click)="showDetails(package)" class="btn btn-primary">More Details</a>
+                    <a (click)="bookNow(package._id)" class="btn btn-success book-now-btn">Book Now</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Modal -->
+<div id="detailsPopup" class="popup" *ngIf="selectedPackage">
+  <div class="popup-content">
+    <span class="close" (click)="closeDetails()">&times;</span>
+    <div class="popup-header">
+      <h2>{{selectedPackage?.name}}</h2>
+    </div>
+    <div class="popup-body">
+      <img [src]="selectedPackage?.image" class="package-image" alt="Package Image">
+      <div class="package-details">
+        <div class="detail-item">
+          <span class="detail-label">Category:</span>
+          <span>{{selectedPackage?.category.name}}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Description:</span>
+          <span class="long-text">{{selectedPackage?.description}}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">Price:</span>
+          <span>{{selectedPackage?.price | currency:'INR'}}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">From Date:</span>
+          <span>{{selectedPackage?.from_date | date}}</span>
+        </div>
+        <div class="detail-item">
+          <span class="detail-label">End Date:</span>
+          <span>{{selectedPackage?.to_date | date}}</span>
+        </div>
+        <button class="book-now" (click)="bookNow(selectedPackage)">Book Now</button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,52 @@
+<div class="container mt-5">
+  <div class="booking-card">
+    <h2 class="text-center mb-4">Create Your Booking</h2>
+    <form (ngSubmit)="createBooking()">
+      <div class="form-group">
+        <label for="no_of_adults" class="form-label">Number of Adults</label>
+        <input
+          type="number"
+          id="no_of_adults"
+          [(ngModel)]="booking.no_of_adults"
+          (ngModelChange)="updateTotalPeople()"
+          name="no_of_adults"
+          class="form-control"
+          placeholder="e.g., 2"
+          min="1"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="no_of_children" class="form-label">Number of Children</label>
+        <input
+          type="number"
+          id="no_of_children"
+          [(ngModel)]="booking.no_of_child"
+          (ngModelChange)="updateTotalPeople()"
+          name="no_of_children"
+          class="form-control"
+          placeholder="e.g., 1"
+          min="0"
+          required
+        />
+      </div>
+
+      <div class="form-group">
+        <label for="no_of_people" class="form-label">Total Number of People</label>
+        <input
+          type="number"
+          id="no_of_people"
+          [(ngModel)]="booking.no_of_people"
+          name="no_of_people"
+          class="form-control"
+          placeholder="e.g., 3"
+          [value]="booking.no_of_people"
+          readonly
+        />
+      </div>
+
+      <button type="submit" class="btn btn-submit">Create Booking</button>
+    </form>
+  </div>
+</div>

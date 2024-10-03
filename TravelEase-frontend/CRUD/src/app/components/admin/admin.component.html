@@ -1,0 +1,58 @@
+<div class="container admin-dashboard">
+  <div class="dashboard-header text-center mb-4">
+    <h2 class="display-4">Admin Dashboard</h2>
+  </div>
+
+  <div class="row">
+    <!-- Add Category Card -->
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card h-100 card-custom">
+        <div class="card-body text-center">
+          <h5 class="card-title">Manage Categories</h5>
+          <p class="card-text">Add, update, or delete categories.</p>
+          <a routerLink="/admin/add-category" class="btn btn-primary btn-custom">Add Category</a>
+          <a routerLink="/admin/manage-categories" class="btn btn-secondary btn-custom">View Categories</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manage Packages Card -->
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card h-100 card-custom">
+        <div class="card-body text-center">
+          <h5 class="card-title">Manage Packages</h5>
+          <p class="card-text">Create, update, or remove travel packages.</p>
+          <a routerLink="/admin/add-package" class="btn btn-primary btn-custom">Add Package</a>
+          <a routerLink="/admin/manage-packages" class="btn btn-secondary btn-custom">View Packages</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manage Users Card -->
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card h-100 card-custom">
+        <div class="card-body text-center">
+          <h5 class="card-title">Manage Users</h5>
+          <p class="card-text">View, update, or delete user accounts.</p>
+          <a routerLink="/admin/manage-users" class="btn btn-primary btn-custom">Manage Users</a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Manage Bookings Card -->
+    <div class="col-md-6 col-lg-3 mb-4">
+      <div class="card h-100 card-custom">
+        <div class="card-body text-center">
+          <h5 class="card-title">Manage Bookings</h5>
+          <p class="card-text">View and manage all bookings.</p>
+          <a routerLink="/admin/manage-bookings" class="btn btn-primary btn-custom">View Bookings</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- router outlet -->
+<div class="container router-container">
+  <router-outlet></router-outlet>
+</div>

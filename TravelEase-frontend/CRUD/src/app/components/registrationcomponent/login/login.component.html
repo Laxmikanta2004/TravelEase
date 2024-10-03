@@ -1,0 +1,32 @@
+<div class="container">
+  <h2>Login</h2>
+  <form (ngSubmit)="loginUser()">
+    <div class="mb-3">
+      <label for="email" class="form-label">Email address</label>
+      <input 
+        type="email" 
+        [(ngModel)]="loginData.email" 
+        name="email" 
+        class="form-control" 
+        id="email" 
+        required>
+      <div *ngIf="emailError" class="text-danger mt-1">{{ emailError }}</div>
+    </div>
+    <div class="mb-3">
+      <label for="password" class="form-label">Password</label>
+      <input 
+        type="password" 
+        [(ngModel)]="loginData.password" 
+        name="password" 
+        class="form-control" 
+        id="password" 
+        required>
+      <div *ngIf="passwordError" class="text-danger mt-1">{{ passwordError }}</div>
+    </div>
+    <button type="submit" class="btn btn-primary">Login</button>
+  </form>
+  
+  <div class="mt-3 text-center">
+    <p>New to the site? <a routerLink="/register" class="btn btn-link">Register here</a></p>
+  </div>
+</div>

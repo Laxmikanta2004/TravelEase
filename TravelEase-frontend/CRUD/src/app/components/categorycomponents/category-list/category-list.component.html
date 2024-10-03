@@ -1,0 +1,11 @@
+<p>category-list works!</p>
+<table class="table table-striped table-bordered table-hover" border="2">
+    <tr>
+        <th>ID</th>
+        <th>Name</th>
+    </tr>
+    <tr *ngFor= "let category of categories" >
+        <td>{{category._id}}</td>
+        <td>{{category.name}}</td>
+    </tr>
+</table>

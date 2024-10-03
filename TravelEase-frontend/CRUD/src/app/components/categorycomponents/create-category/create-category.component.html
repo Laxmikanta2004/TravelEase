@@ -1,0 +1,25 @@
+
+<div class="container mt-5">
+    <div *ngIf="!submitted" class="card p-4">
+        <h3 class="card-title mb-4">Create Category</h3>
+
+        <div class="form-group mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input 
+            type="text" 
+            name="name"
+            class="form-control"
+            required 
+            [(ngModel)]="categoryitem.name"
+            >
+        </div>
+
+
+        <button class="btn btn-primary" (click)="createCategory()">Submit</button>
+    </div>
+
+    <div *ngIf="submitted" class="text-center mt-5">
+        <h4 class="text-success">Product Was submitted successfully!</h4>
+        <button class="btn btn-secondary mt-3" (click)="newCategory()">Add</button>
+    </div>
+</div>

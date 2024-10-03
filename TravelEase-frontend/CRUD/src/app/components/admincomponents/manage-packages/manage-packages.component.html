@@ -1,0 +1,90 @@
+<div class="table-responsive">
+    <table class="table table-striped table-bordered table-hover table-custom">
+        <thead class="thead-dark">
+            <tr id="table-header">
+                <th>ID</th>
+                <th>Name</th>
+                <th>From Date</th>
+                <th>To Date</th>
+                <th>Description</th>
+                <th>Price</th>
+                <th>Short Description</th>
+                <th>Category</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let package of packages" class="table-row">
+                <td>{{package._id}}</td>
+                <td>{{package.name}}</td>
+                <td>{{package.from_date | date}}</td>
+                <td>{{package.to_date | date}}</td>
+                <td>{{package.description}}</td>
+                <td>{{package.price | currency:'INR'}}</td>
+                <td>{{package.short_description}}</td>
+                <td>{{package.category.name}}</td>
+                <td>
+                    <button (click)="updatePackage(package._id)" class="btn btn-warning btn-sm">Update</button>
+                    <button (click)="deletePackage(package._id)" class="btn btn-danger btn-sm">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+  </div>
+  
+
+<div *ngIf="isUpdating" class="mt-4">
+  <h2 class="mb-4">Update Package</h2>
+  <form (ngSubmit)="saveUpdatedPackage()" class="bg-light p-4 rounded">
+      <div class="form-group">
+          <label for="name">Name</label>
+          <input id="name" class="form-control" [(ngModel)]="selectedPackage.name" name="name" required />
+      </div>
+
+      <div class="form-group">
+          <label for="from_date">From Date</label>
+          <input id="from_date" class="form-control" [(ngModel)]="selectedPackage.from_date" name="from_date" type="date" required />
+      </div>
+
+      <div class="form-group">
+          <label for="to_date">To Date</label>
+          <input id="to_date" class="form-control" [(ngModel)]="selectedPackage.to_date" name="to_date" type="date" required />
+      </div>
+
+      <div class="form-group">
+          <label for="description">Description</label>
+          <textarea id="description" class="form-control" [(ngModel)]="selectedPackage.description" name="description" required></textarea>
+      </div>
+
+      <div class="form-group">
+          <label for="price">Price</label>
+          <input id="price" class="form-control" [(ngModel)]="selectedPackage.price" name="price" type="number" required />
+      </div>
+
+      <div class="form-group">
+          <label for="short_description">Short Description</label>
+          <input id="short_description" class="form-control" [(ngModel)]="selectedPackage.short_description" name="short_description" required />
+      </div>
+
+      <div class="form-group">
+        <label for="image">Image link</label>
+        <input id="image" class="form-control" [(ngModel)]="selectedPackage.image" name="image" required />
+    </div>
+
+    <div class="form-group">
+        <label for="category">Category</label>
+        <select 
+          name="category"
+          class="form-control"
+          required
+          [(ngModel)]="selectedPackage.category">
+          <option *ngFor="let category of categories" [value]="category._id">
+            {{ category.name }}
+          </option>
+        </select>
+    </div>
+      
+      <button type="submit" class="btn btn-success">Update Package</button>
+      <button type="button" class="btn btn-secondary" (click)="cancelUpdate()">Cancel</button>
+  </form>
+</div>

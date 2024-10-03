@@ -1,0 +1,52 @@
+.table-custom {
+    border-collapse: separate;
+    border-spacing: 0 15px; /* Adds space between rows */
+  }
+  
+  .table-custom th, .table-custom td {
+    text-align: center;
+    vertical-align: middle;
+    padding: 15px;
+  }
+  
+  .table-custom thead {
+    background-color: #343a40; /* Dark background for header */
+  }
+  
+  .table-custom tbody tr {
+    background-color: #f8f9fa; /* Light background for rows */
+    transition: background-color 0.3s ease; /* Smooth transition for hover effect */
+  }
+  
+  .table-custom tbody tr:hover {
+    background-color: #e9ecef; /* Light gray background on hover */
+  }
+  
+  .table-custom td {
+    max-width: 200px; /* Adjust width for large texts */
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+  
+  .table-custom td, .table-custom th {
+    border: 1px solid #dee2e6; /* Light gray border */
+  }
+  
+  .btn {
+    transition: transform 0.2s ease; /* Smooth transition for button hover effect */
+  }
+  
+  .btn:hover {
+    transform: scale(1.05); /* Slightly scale button on hover */
+  }
+  
+  .table-custom .table-row {
+    animation: fadeIn 0.5s ease-in-out; /* Animation for row appearance */
+  }
+  
+  @keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+  }
+  

@@ -1,0 +1,62 @@
+<!-- User Registration List -->
+<div class="container mt-5">
+    <h1 class="mb-4">Registration List</h1>
+
+    <table class="table table-striped table-bordered bg-white">
+        <thead class="thead-dark">
+            <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Email</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr *ngFor="let user of users">
+                <td>{{user.id}}</td>
+                <td>{{user.name}}</td>
+                <td>{{user.email}}</td>
+                <td>
+                    <button (click)="editUser(user)" class="btn btn-warning btn-sm">Edit</button>
+                    <button (click)="deleteUser(user.id)" class="btn btn-danger btn-sm">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+</div>
+
+<!-- User Edit Form -->
+<div class="container mt-5" *ngIf="selectedUser">
+    <div class="row">
+        <div class="col-md-8 offset-md-2">
+            <div class="card border-primary">
+                <div class="card-header bg-primary text-white">
+                    <h4 class="mb-0">Edit User</h4>
+                </div>
+                <div class="card-body">
+                    <form (ngSubmit)="updateUser()">
+                        <div class="form-group">
+                            <label for="name">Name</label>
+                            <input id="name" [(ngModel)]="selectedUser.name" name="name" class="form-control" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input id="email" [(ngModel)]="selectedUser.email" name="email" class="form-control" required />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input id="password" [(ngModel)]="selectedUser.password" name="password" type="password" class="form-control" required />
+                        </div>
+
+                        <div class="form-group text-center">
+                            <button type="submit" class="btn btn-primary">Update User</button>
+                            <button type="button" (click)="cancelEdit()" class="btn btn-secondary ml-2">Cancel</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

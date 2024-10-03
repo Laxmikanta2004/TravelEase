@@ -1,0 +1,30 @@
+<div class="container mt-5">
+    <h2 class="mb-4">Your Bookings</h2>
+    <div *ngIf="bookings.length > 0; else noBookings" class="row">
+      <div *ngFor="let booking of bookings" class="col-md-4 mb-4">
+        <div class="card shadow-sm">
+          <img *ngIf="booking.packageId?.image" [src]="booking.packageId.image" class="card-img-top" alt="{{ booking.packageId.name }}">
+          <div class="card-body">
+            <h5 class="card-title">{{ booking.packageId?.name || 'na' }}</h5>
+            <p class="card-text">
+              <strong>Name:</strong> {{ booking.userId?.name || 'N/A' }}<br>
+              <strong>Date:</strong> {{ booking.bookingDate | date }}<br>
+              <strong>Adults:</strong> {{ booking.no_of_adults }}<br>
+              <strong>Children:</strong> {{ booking.no_of_child }}<br>
+              <strong>Total People:</strong> {{ booking.no_of_people }}<br>
+              <strong>Status:</strong> {{ booking.status }}
+            </p>
+          </div>
+          <div class="card-footer text-muted">
+            <small>Booking ID: {{ booking._id }}</small>
+          </div>
+        </div>
+      </div>
+    </div>
+    <ng-template #noBookings>
+      <div class="alert alert-info" role="alert">
+        No bookings found.
+      </div>
+    </ng-template>
+  </div>
+  

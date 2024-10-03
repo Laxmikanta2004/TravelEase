@@ -1,0 +1,69 @@
+<div class="container">
+  <h1 class="page-title">Manage Bookings</h1>
+  
+  <!-- Update Form -->
+  <div *ngIf="updateMode" class="update-form card">
+    <div class="card-header">
+      <h2>Update Booking</h2>
+    </div>
+    <div class="card-body">
+      <form (ngSubmit)="saveUpdate()">
+        <div class="form-group">
+          <label for="no_of_adults">No. of Adults</label>
+          <input type="number" id="no_of_adults" [(ngModel)]="selectedBooking.no_of_adults" name="no_of_adults" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="no_of_child">No. of Children</label>
+          <input type="number" id="no_of_child" [(ngModel)]="selectedBooking.no_of_child" name="no_of_child" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="no_of_people">No. of People</label>
+          <input type="number" id="no_of_people" [(ngModel)]="selectedBooking.no_of_people" name="no_of_people" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="bookingDate">Booking Date</label>
+          <input type="date" id="bookingDate" [(ngModel)]="selectedBooking.bookingDate" name="bookingDate" class="form-control" required>
+        </div>
+        <div class="form-group">
+          <label for="status">Status</label>
+          <input type="text" id="status" [(ngModel)]="selectedBooking.status" name="status" class="form-control" required>
+        </div>
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <button type="button" (click)="cancelUpdate()" class="btn btn-secondary">Cancel</button>
+      </form>
+    </div>
+  </div>
+ <!-- Bookings Table -->
+<div class="table-container mt-4">
+  <table class="table table-striped table-hover table-bordered">
+    <thead class="thead-dark">
+      <tr>
+        <th>Booking ID</th>
+        <th>User</th>
+        <th>Package Name</th>
+        <th>No. of Adults</th>
+        <th>No. of Children</th>
+        <th>No. of People</th>
+        <th>Booking Date</th>
+        <th>Status</th>
+        <th>Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let booking of bookings">
+        <td>{{ booking._id }}</td>
+        <td>{{ booking.userId.email }}</td>
+        <td>{{ booking.packageId?.name }}</td>
+        <td>{{ booking.no_of_adults }}</td>
+        <td>{{ booking.no_of_child }}</td>
+        <td>{{ booking.no_of_people }}</td>
+        <td>{{ booking.bookingDate | date }}</td>
+        <td>{{ booking.status }}</td>
+        <td>
+          <button (click)="onUpdate(booking)" class="btn btn-warning btn-sm">Update</button>
+          <button (click)="deleteBooking(booking._id)" class="btn btn-danger btn-sm">Delete</button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

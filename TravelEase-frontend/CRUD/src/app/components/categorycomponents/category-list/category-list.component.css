@@ -1,0 +1,22 @@
+.table {
+    background-color: #ffffff; /* White background */
+    border-collapse: collapse; /* Ensure borders are not double */
+}
+
+.table th, .table td {
+    border: 2px solid #dee2e6; /* Solid border color */
+    vertical-align: middle; /* Center align text */
+}
+
+.table thead th {
+    background-color: #343a40; /* Dark background for header */
+    color: #ffffff; /* White text color */
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+    background-color: #f2f2f2; /* Light grey background for odd rows */
+}
+
+.table-hover tbody tr:hover {
+    background-color: #e9ecef; /* Light grey background on hover */
+}

@@ -1,0 +1,138 @@
+<div class="container mt-5">
+    <div *ngIf="!submitted" class="card p-4">
+        <h3 class="card-title mb-4">Create Package</h3>
+
+        <div class="form-group mb-3">
+            <label for="name" class="form-label">Name</label>
+            <input 
+            type="text" 
+            name="name"
+            class="form-control"
+            required 
+            [(ngModel)]="packageitem.name"
+            >
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="from_date" class="form-label">From Date</label>  
+            <input 
+            type="date" 
+            name="from_date"
+            class="form-control"
+            required 
+            [(ngModel)]="packageitem.from_date"
+            >
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="to_date" class="form-label">To date</label> 
+            <input 
+            type="date" 
+            name="to_date"
+            class="form-control"
+            required
+            [(ngModel)]="packageitem.to_date"
+            >
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="description" class="form-label">Description</label>
+            <textarea 
+            name="description"
+            class="form-control"
+            rows="3"
+            required
+            [(ngModel)]="packageitem.description"
+            ></textarea> 
+        </div>
+
+        <div class="form-group mb-3">
+            <label for="price" class="form-label">Price</label>
+            <input 
+            type="text" 
+            name="price"
+            class="form-control"
+            required
+            [(ngModel)]="packageitem.price"
+            >
+        </div>
+
+        <!-- <div class="form-group mb-3">
+            <label for="no of adult" class="form-label">No of Adult</label>
+            <input 
+            type="number" 
+            name="no of adult"
+            class="form-control"
+            required
+            [(ngModel)]="packageitem.no_of_adult"
+            >
+        </div> -->
+
+        <!-- <div class="form-group mb-3">
+            <label for="no of Child" class="form-label">No of Child</label>
+            <input 
+            type="number" 
+            name="no of Child"
+            class="form-control"
+            required
+            [(ngModel)]="packageitem.no_of_child"
+            >
+        </div> -->
+
+        <div class="form-group mb-3">
+            <label for="short description" class="form-label">Short Description</label>
+            <input 
+            type="text" 
+            name="short description"
+            class="form-control"
+            required
+            [(ngModel)]="packageitem.short_description"
+            >
+        </div>
+
+        <!-- <div class="form-group mb-3">
+            <label for="no of People" class="form-label">No of People</label>
+            <input 
+            type="number"
+            name="no of People"
+            class="form-control"
+            required 
+            [(ngModel)]="packageitem.no_of_people"
+            >
+        </div> -->
+
+        <!-- <form action="/upload" method="POST" enctype="multipart/form-data"> -->
+        <div class="form-group mb-3">
+            <label for="image" class="form-label">Image</label>
+            <input 
+            type="text"
+            name="image"
+            class="form-control"
+            required 
+            [(ngModel)]="packageitem.image"
+            >
+        </div>
+       <!-- </form> -->
+       
+       
+        <div class="form-group mb-3">
+            <label for="category" class="form-label">Category</label>
+            <select 
+              name="category"
+              class="form-control"
+              required
+              [(ngModel)]="packageitem.category">
+              <option *ngFor="let category of categories" [value]="category._id">
+                {{ category.name }}
+              </option>
+            </select>
+        </div>
+
+
+        <button class="btn btn-primary" (click)="createPackage()">Submit</button>
+    </div>
+    <div *ngIf="submitted" class="text-center mt-5">
+        <h4 class="text-success">Product Was submitted successfully!</h4>
+        <button class="btn btn-secondary mt-3" (click)="newPackage()">Add</button>
+    </div>
+</div>

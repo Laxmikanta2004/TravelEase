@@ -1,0 +1,82 @@
+/* Container styling */
+.registration-form {
+    max-width: 500px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #ffffff, #f0f0f0);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Hover effect for the form */
+.registration-form:hover {
+    transform: scale(1.02);
+}
+
+/* Form heading */
+h1 {
+    font-size: 28px;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+    color: #007bff;
+}
+
+/* Label styling */
+.form-group label {
+    font-weight: bold;
+    color: #495057;
+}
+
+/* Input field styling */
+.form-control {
+    border-radius: 5px;
+    box-shadow: inset 0 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s;
+}
+
+/* Focus effect for inputs */
+.form-control:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+}
+
+/* Error message styling */
+.text-danger {
+    font-size: 14px;
+    font-weight: 500;
+}
+
+/* Submit button styling */
+.btn-primary {
+    width: 100%;
+    padding: 10px;
+    border: none;
+    border-radius: 5px;
+    background: #007bff;
+    font-size: 16px;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+/* Hover effect for button */
+.btn-primary:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+/* Login link styling */
+.text-primary {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.text-primary:hover {
+    color: #0056b3;
+    text-decoration: underline;
+}
+
+/* Centered login link container */
+.mt-3 {
+    margin-top: 20px;
+}
